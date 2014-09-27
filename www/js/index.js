@@ -45,5 +45,14 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    },
+    takePicrure : function(){
+        var options = {quality:100, destinationType: Camera.DestinationType.DATA_URL};
+        navigator.camera.getPicture(function (data) {
+            document.getElementById('picture').src = "data:image/jpeg;base64,"+data;
+        },function (message) {
+            
+        },
+        options);
     }
 };
